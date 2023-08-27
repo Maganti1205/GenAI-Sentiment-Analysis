@@ -1,5 +1,5 @@
 # The name of this view in Looker is "Tfd Sentiment Analysis"
-view: tfd_sentiment_analysis {
+view: genai_sentiment_analysis {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
   sql_table_name: `my-demo-project-360918.llm_sentiment.tfd_sentiment_analysis` ;;
