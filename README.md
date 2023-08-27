@@ -1,1 +1,1 @@
-# Gen-AI-Sentiment-Analysis
+# GenAI-Sentiment-Analysis
