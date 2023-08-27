@@ -1,4 +1,4 @@
-- dashboard: gen_ai_sentiment_analysis
+- dashboard: GenAI_sentiment_analysis
   title: Gen AI Sentiment Analysis
   layout: newspaper
   preferred_viewer: dashboards-next
@@ -8,10 +8,10 @@
   - title: Sentiment Distribution
     name: Sentiment Distribution
     model: mde-cortex-demo
-    explore: tfd_sentiment_analysis
+    explore: genai_sentiment_analysis
     type: looker_pie
-    fields: [tfd_sentiment_analysis.count, tfd_sentiment_analysis.sentiment]
-    sorts: [tfd_sentiment_analysis.count desc 0]
+    fields: [genai_sentiment_analysis.count, genai_sentiment_analysis.sentiment]
+    sorts: [genai_sentiment_analysis.count desc 0]
     limit: 500
     column_limit: 50
     value_labels: legend
@@ -41,16 +41,16 @@
   - title: Monthly Review Count Trend
     name: Monthly Review Count Trend
     model: mde-cortex-demo
-    explore: tfd_sentiment_analysis
+    explore: genai_sentiment_analysis
     type: looker_line
-    fields: [tfd_sentiment_analysis.published_month, count_of_id]
-    fill_fields: [tfd_sentiment_analysis.published_month]
-    sorts: [tfd_sentiment_analysis.published_month desc]
+    fields: [genai_sentiment_analysis.published_month, count_of_id]
+    fill_fields: [genai_sentiment_analysis.published_month]
+    sorts: [genai_sentiment_analysis.published_month desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
     - measure: count_of_id
-      based_on: tfd_sentiment_analysis.id
+      based_on: genai_sentiment_analysis.id
       expression: ''
       label: Count of ID
       type: count_distinct
@@ -109,16 +109,16 @@
   - title: Annual Positive Sentiment Trend
     name: Annual Positive Sentiment Trend
     model: mde-cortex-demo
-    explore: tfd_sentiment_analysis
+    explore: genai_sentiment_analysis
     type: looker_column
-    fields: [tfd_sentiment_analysis.published_year, count_of_id]
-    fill_fields: [tfd_sentiment_analysis.published_year]
-    sorts: [tfd_sentiment_analysis.published_year desc]
+    fields: [genai_sentiment_analysis.published_year, count_of_id]
+    fill_fields: [genai_sentiment_analysis.published_year]
+    sorts: [genai_sentiment_analysis.published_year desc]
     limit: 500
     column_limit: 50
     dynamic_fields:
     - measure: count_of_id
-      based_on: tfd_sentiment_analysis.id
+      based_on: genai_sentiment_analysis.id
       expression: ''
       label: Count of ID
       type: count_distinct
@@ -165,11 +165,11 @@
   - title: Topic/Sentiment Pair Review Count
     name: Topic/Sentiment Pair Review Count
     model: mde-cortex-demo
-    explore: tfd_sentiment_analysis
+    explore: genai_sentiment_analysis
     type: looker_grid
-    fields: [tfd_sentiment_analysis.type, tfd_sentiment_analysis.sentiment, tfd_sentiment_analysis.count]
-    pivots: [tfd_sentiment_analysis.sentiment]
-    sorts: [tfd_sentiment_analysis.sentiment, tfd_sentiment_analysis.count desc 0]
+    fields: [genai_sentiment_analysis.type, genai_sentiment_analysis.sentiment, genai_sentiment_analysis.count]
+    pivots: [genai_sentiment_analysis.sentiment]
+    sorts: [genai_sentiment_analysis.sentiment, genai_sentiment_analysis.count desc 0]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -193,11 +193,11 @@
     truncate_header: false
     minimum_column_width: 75
     series_labels:
-      tfd_sentiment_analysis.type: Topic
-      tfd_sentiment_analysis.sentiment: Sentiment
-      tfd_sentiment_analysis.count: Topic Count
+      genai_sentiment_analysis.type: Topic
+      genai_sentiment_analysis.sentiment: Sentiment
+      genai_sentiment_analysis.count: Topic Count
     series_cell_visualizations:
-      tfd_sentiment_analysis.count:
+      genai_sentiment_analysis.count:
         is_active: true
     defaults_version: 1
     hidden_pivots: {}
@@ -209,11 +209,11 @@
   - title: Sentiment by Topic
     name: Sentiment by Topic
     model: mde-cortex-demo
-    explore: tfd_sentiment_analysis
+    explore: genai_sentiment_analysis
     type: looker_bar
-    fields: [tfd_sentiment_analysis.type, tfd_sentiment_analysis.sentiment, tfd_sentiment_analysis.count]
-    pivots: [tfd_sentiment_analysis.sentiment]
-    sorts: [tfd_sentiment_analysis.sentiment, tfd_sentiment_analysis.count desc 4]
+    fields: [genai_sentiment_analysis.type, genai_sentiment_analysis.sentiment, genai_sentiment_analysis.count]
+    pivots: [genai_sentiment_analysis.sentiment]
+    sorts: [genai_sentiment_analysis.sentiment, genai_sentiment_analysis.count desc 4]
     limit: 500
     column_limit: 50
     x_axis_gridlines: false
@@ -249,14 +249,14 @@
       options:
         steps: 5
     y_axes: [{label: Review Topic, orientation: bottom, series: [{axisId: Negative
-              - tfd_sentiment_analysis.count, id: Negative - tfd_sentiment_analysis.count,
-            name: Negative}, {axisId: Neutral - tfd_sentiment_analysis.count, id: Neutral
-              - tfd_sentiment_analysis.count, name: Neutral}, {axisId: Positive -
-              tfd_sentiment_analysis.count, id: Positive - tfd_sentiment_analysis.count,
-            name: Positive}, {axisId: Very Negative - tfd_sentiment_analysis.count,
-            id: Very Negative - tfd_sentiment_analysis.count, name: Very Negative},
-          {axisId: Very Positive - tfd_sentiment_analysis.count, id: Very Positive
-              - tfd_sentiment_analysis.count, name: Very Positive}], showLabels: false,
+              - genai_sentiment_analysis.count, id: Negative - genai_sentiment_analysis.count,
+            name: Negative}, {axisId: Neutral - genai_sentiment_analysis.count, id: Neutral
+              - genai_sentiment_analysis.count, name: Neutral}, {axisId: Positive -
+              genai_sentiment_analysis.count, id: Positive - genai_sentiment_analysis.count,
+            name: Positive}, {axisId: Very Negative - genai_sentiment_analysis.count,
+            id: Very Negative - genai_sentiment_analysis.count, name: Very Negative},
+          {axisId: Very Positive - genai_sentiment_analysis.count, id: Very Positive
+              - genai_sentiment_analysis.count, name: Very Positive}], showLabels: false,
         showValues: true, minValue: !!null '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     x_axis_label: ''
@@ -267,11 +267,11 @@
       first_last: last
       num_rows: '10'
     series_colors:
-      Negative - tfd_sentiment_analysis.count: "#EA4335"
-      Neutral - tfd_sentiment_analysis.count: "#BDC1C6"
-      Very Positive - tfd_sentiment_analysis.count: "#137333"
-      Very Negative - tfd_sentiment_analysis.count: "#B31412"
-      Positive - tfd_sentiment_analysis.count: "#34A853"
+      Negative - genai_sentiment_analysis.count: "#EA4335"
+      Neutral - genai_sentiment_analysis.count: "#BDC1C6"
+      Very Positive - genai_sentiment_analysis.count: "#137333"
+      Very Negative - genai_sentiment_analysis.count: "#B31412"
+      Positive - genai_sentiment_analysis.count: "#34A853"
     defaults_version: 1
     hidden_fields: []
     hidden_points_if_no: []
