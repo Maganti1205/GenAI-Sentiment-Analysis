@@ -48,6 +48,11 @@ view: genai_sentiment_analysis {
     sql: ${TABLE}.review ;;
   }
 
+  dimension: response {
+    type: string
+    sql: ${TABLE}.response ;;
+  }
+
   dimension: reviewer {
     type: string
     sql: ${TABLE}.reviewer ;;
@@ -64,6 +69,6 @@ view: genai_sentiment_analysis {
   }
   measure: count {
     type: count
-    drill_fields: [id,review,rating,published_date,type,sentiment]
+    drill_fields: [id,review,rating,published_date,type,sentiment,response]
   }
 }
