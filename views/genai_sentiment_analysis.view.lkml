@@ -39,6 +39,7 @@ view: genai_sentiment_analysis {
   measure: total_rating {
     type: sum
     sql: ${rating} ;;  }
+
   measure: average_rating {
     type: average
     sql: ${rating} ;;  }
