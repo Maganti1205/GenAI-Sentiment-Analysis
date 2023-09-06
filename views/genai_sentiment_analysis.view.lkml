@@ -53,8 +53,6 @@ view: genai_sentiment_analysis {
     sql: ${TABLE}.response ;;
   }
 
-
-
   dimension: reviewer {
     type: string
     sql: ${TABLE}.reviewer ;;
